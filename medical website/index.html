@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediAccess - Modern Healthcare Platform</title>
+  <meta name="description" content="Find hospital bed availability, vaccination info, emergency fees, and top doctors.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#home" class="logo">
+      <i class="fa-solid fa-heart-pulse"></i> Medi<span>Access</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#beds" class="nav-link">Bed Availability</a></li>
+      <li><a href="#vaccines" class="nav-link">Vaccines</a></li>
+      <li><a href="#fees" class="nav-link">Emergency Fees</a></li>
+      <li><a href="#doctors" class="nav-link">Doctors</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="tel:108" class="btn-emergency">
+      <i class="fa-solid fa-phone"></i> Emergency 108
+    </a>
+  </nav>
+
+  <!-- Main Content Areas -->
+  <main id="main-content">
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <h1>Your Health, Our Priority</h1>
+        <p>Find real-time hospital bed availability, book top doctors, explore vaccination centers, and access emergency
+          services instantly.</p>
+        <div class="search-container">
+          <input type="text" id="global-search" class="search-input"
+            placeholder="Search hospitals, doctors, or vaccines...">
+          <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+        </div>
+      </div>
+
+      <div class="quick-cards">
+        <div class="card" onclick="location.hash='#beds'">
+          <div class="card-icon"><i class="fa-solid fa-bed-pulse"></i></div>
+          <h3>Bed Availability</h3>
+          <p>Check real-time ICU and ward bed status.</p>
+        </div>
+        <div class="card" onclick="location.hash='#vaccines'">
+          <div class="card-icon"><i class="fa-solid fa-syringe"></i></div>
+          <h3>Vaccination Centers</h3>
+          <p>Find nearby centers and available vaccines.</p>
+        </div>
+        <div class="card" onclick="location.hash='#fees'">
+          <div class="card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <h3>Emergency Fees</h3>
+          <p>Compare emergency entry & consultation costs.</p>
+        </div>
+        <div class="card" onclick="location.hash='#doctors'">
+          <div class="card-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <h3>Top Doctors</h3>
+          <p>Book appointments with highly rated specialists.</p>
+        </div>
+      </div>
+
+      <!-- Added Health Tips Section as requested -->
+      <div style="margin-top: 3rem;">
+        <h2 style="margin-bottom: 1.5rem;"><i class="fa-solid fa-leaf" style="color:var(--secondary-color);"></i> Daily
+          Health Tips</h2>
+        <div class="quick-cards">
+          <div class="card" style="cursor: default;">
+            <h4>Stay Hydrated</h4>
+            <p>Drink at least 8 glasses of water a day to keep your body functioning well.</p>
+          </div>
+          <div class="card" style="cursor: default;">
+            <h4>Regular Exercise</h4>
+            <p>Engage in 30 minutes of moderate activity daily for heart health.</p>
+          </div>
+          <div class="card" style="cursor: default;">
+            <h4>Mental Wellbeing</h4>
+            <p>Practice mindfulness or meditation for 10 minutes to reduce stress.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hospital Bed Availability Page -->
+    <section id="beds" class="page">
+      <h2><i class="fa-solid fa-bed-pulse"></i> Hospital Bed Availability</h2>
+      <p style="color:var(--text-secondary); margin-bottom: 2rem;">Real-time update on ward and ICU beds across
+        hospitals.</p>
+
+      <div class="filter-bar">
+        <select id="city-filter" class="select-filter">
+          <option value="all">All Cities</option>
+          <option value="Bhubaneswar">Bhubaneswar</option>
+          <option value="Cuttack">Cuttack</option>
+          <option value="Rourkela">Rourkela</option>
+          <option value="Berhampur">Berhampur</option>
+        </select>
+        <select id="type-filter" class="select-filter">
+          <option value="all">All Types</option>
+          <option value="government">Government</option>
+          <option value="private">Private</option>
+        </select>
+      </div>
+
+      <div class="list-grid" id="beds-list">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Vaccination Information Page -->
+    <section id="vaccines" class="page">
+      <h2><i class="fa-solid fa-shield-virus"></i> Vaccination Information</h2>
+      <p style="color:var(--text-secondary); margin-bottom: 2rem;">Find nearby centers, check vaccine types, and
+        schedule your dose.</p>
+
+      <div class="list-grid" id="vaccines-list">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div
+        style="margin-top: 3rem; background: var(--surface-color); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-sm);">
+        <h3>Vaccine Awareness</h3>
+        <p style="margin-top:1rem; color:var(--text-secondary);">Vaccines train your immune system to create antibodies,
+          just as it does when it's exposed to a disease. However, because vaccines contain only killed or weakened
+          forms of germs like viruses or bacteria, they do not cause the disease or put you at risk of its
+          complications.</p>
+      </div>
+    </section>
+
+    <!-- Emergency Entry Fee Page -->
+    <section id="fees" class="page">
+      <h2><i class="fa-solid fa-money-bill-wave"></i> Emergency Fees & Costs</h2>
+      <p style="color:var(--text-secondary); margin-bottom: 2rem;">Transparent pricing for emergency admissions and ICU
+        care.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Hospital Name</th>
+              <th>City</th>
+              <th>Entry / Registration Fee</th>
+              <th>Consultation Fee</th>
+              <th>ICU Average Cost (Per Day)</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody id="fees-list">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Doctor Recommendation Page -->
+    <section id="doctors" class="page">
+      <h2><i class="fa-solid fa-user-md"></i> Recommended Doctors</h2>
+      <p style="color:var(--text-secondary); margin-bottom: 2rem;">Book consultations with highly experienced
+        specialists.</p>
+
+      <div class="filter-bar">
+        <select id="specialty-filter" class="select-filter">
+          <option value="all">All Specialties</option>
+          <option value="Cardiology">Cardiology</option>
+          <option value="Neurology">Neurology</option>
+          <option value="Pediatrics">Pediatrics</option>
+          <option value="Orthopedics">Orthopedics</option>
+          <option value="General Medicine">General Medicine</option>
+        </select>
+      </div>
+
+      <div class="list-grid" id="doctors-list">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Hospital Details Page (Dynamic) -->
+    <section id="hospital-details" class="page">
+      <button class="btn btn-secondary" onclick="location.hash='#beds'" style="width:auto; margin-bottom:1rem;"><i
+          class="fa-solid fa-arrow-left"></i> Back</button>
+      <div id="hospital-detail-content">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+      <h2><i class="fa-solid fa-headset"></i> Contact & Support</h2>
+      <p style="color:var(--text-secondary); margin-bottom: 2rem;">We are here to help you 24/7.</p>
+
+      <div class="list-grid">
+        <div class="card" style="cursor: default;">
+          <h3>Emergency Contacts</h3>
+          <p style="margin-top: 1rem;"><strong>Ambulance:</strong> 108</p>
+          <p><strong>Health Helpline:</strong> 104</p>
+          <p><strong>Police / Emergency:</strong> 112</p>
+        </div>
+        <div class="card" style="cursor: default;">
+          <h3>Send us a message</h3>
+          <form style="width: 100%; display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;"
+            onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+            <input type="text" placeholder="Your Name" class="select-filter" required>
+            <input type="email" placeholder="Email Address" class="select-filter" required>
+            <textarea placeholder="How can we help?" class="select-filter" rows="4" required></textarea>
+            <button type="submit" class="btn">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Chatbot Container -->
+  <div id="chatbot-container" class="minimized">
+    <div class="chatbot-header" onclick="toggleChat()">
+      <span><i class="fa-solid fa-robot"></i> MediBot AI</span>
+      <i class="fa-solid fa-chevron-up" id="chat-toggle-icon"></i>
+    </div>
+    <div class="chatbot-body" id="chatbot-body">
+      <div class="chat-messages" id="chat-messages">
+        <div class="message bot-message">
+          Hello! I am MediBot, your AI health assistant. Please describe your symptoms. I will try to predict the
+          disease, suggest the best approach, and recommend a specialist.
+        </div>
+      </div>
+      <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type your symptoms here..." onkeypress="handleChatEnter(event)">
+        <button onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 MediAccess. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+
+</html>
